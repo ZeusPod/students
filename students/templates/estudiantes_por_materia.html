@@ -1,0 +1,54 @@
+{% extends 'base/base.html' %}
+
+
+{% block content %}
+
+
+<div class="container">
+    <div class="title text-center">
+        <h1>Estudiantes por materias</h1>
+    
+
+    <div class="row mt-4">
+        <div class="col">
+            <canvas id="estudiantes-por-materia-chart"></canvas>
+        </div>
+
+    </div>
+
+</div>
+  
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0"></script>
+  <script>
+    const labels = {{ labels|safe }};
+    const data = {{ data|safe }};
+
+    const ctx = document.getElementById('estudiantes-por-materia-chart').getContext('2d');
+    const chart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Estudiantes por materia',
+          data: data,
+          backgroundColor: 'rgba(54, 162, 235, 0.2)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+{% endblock %}
+
+
+
+

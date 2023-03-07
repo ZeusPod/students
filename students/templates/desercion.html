@@ -1,0 +1,22 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="titulo text-center">
+        <h1>Desercion por ciudad</h1>
+        {% for estudiante in estudiantes %}
+        <p>Estudiante: {{ estudiante.nombre }}</p>
+        <p>Ciudad: {{ estudiante.ciudad.ciudad }}</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}
+
+
+
+
+{% block js_page %}
+
+{% endblock js_page %}  
